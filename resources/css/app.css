@@ -141,3 +141,120 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* ───────────── Golden Hive — honey journey landing page ───────────── */
+@theme {
+    --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+
+    --color-honey: #f5a623;
+    --color-honey-light: #fbd76b;
+    --color-amber-deep: #c97a12;
+    --color-cream: #fff6dc;
+    --color-comb: #2a1604;
+    --color-night: #120c05;
+    --color-leaf: #5f8a3a;
+}
+
+@keyframes hive-wing {
+    from {
+        transform: rotate(-18deg) scaleY(1);
+    }
+    to {
+        transform: rotate(14deg) scaleY(0.55);
+    }
+}
+
+@keyframes hive-hover {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+@keyframes hive-sway {
+    0%,
+    100% {
+        transform: rotate(-2.5deg);
+    }
+    50% {
+        transform: rotate(2.5deg);
+    }
+}
+
+@keyframes hive-float {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate3d(var(--dx, 30px), -140px, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes hive-ripple {
+    from {
+        transform: scale(0.2);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+@keyframes hive-glow {
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.95;
+        transform: scale(1.08);
+    }
+}
+
+.bee-wing {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: hive-wing 0.09s ease-in-out infinite alternate;
+}
+
+.bee-hover {
+    animation: hive-hover 2.4s ease-in-out infinite;
+}
+
+.flower-sway {
+    transform-origin: 50% 100%;
+    animation: hive-sway 5s ease-in-out infinite;
+}
+
+.pollen {
+    animation: hive-float 9s linear infinite;
+}
+
+.ripple {
+    animation: hive-ripple 3.2s ease-out infinite;
+}
+
+.glow-pulse {
+    animation: hive-glow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bee-wing,
+    .bee-hover,
+    .flower-sway,
+    .pollen,
+    .ripple,
+    .glow-pulse {
+        animation: none;
+    }
+}
